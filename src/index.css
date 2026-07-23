@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Design tokens. Channel triplets (--c-*) are the single source of truth so
+ * Tailwind's /opacity modifiers work; full-color aliases (--bg, --primary…)
+ * are derived once for use in inline styles / SVG / Leaflet.
+ */
+:root {
+  /* light */
+  --c-bg: 246 248 252;
+  --c-surface: 255 255 255;
+  --c-surface-2: 241 245 251;
+  --c-border: 228 234 242;
+  --c-ink: 12 27 42;
+  --c-muted: 89 105 123;
+  --c-faint: 139 153 169;
+  --c-primary: 26 115 232;
+  --c-primary-deep: 11 79 168;
+  --c-primary-fg: 255 255 255;
+  --c-primary-soft: 232 241 254;
+  --c-fit: 14 159 142;
+  --c-fit-soft: 224 245 242;
+  --c-coral: 242 109 75;
+  --c-coral-soft: 253 234 228;
+  --c-good: 22 163 74;
+  --c-warn: 217 154 11;
+  --c-bad: 220 38 38;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --c-bg: 10 17 25;
+    --c-surface: 16 27 39;
+    --c-surface-2: 22 35 47;
+    --c-border: 34 51 66;
+    --c-ink: 238 244 251;
+    --c-muted: 157 176 194;
+    --c-faint: 108 128 149;
+    --c-primary: 77 151 245;
+    --c-primary-deep: 43 124 234;
+    --c-primary-fg: 6 19 33;
+    --c-primary-soft: 22 40 61;
+    --c-fit: 43 192 172;
+    --c-fit-soft: 16 49 46;
+    --c-coral: 255 131 95;
+    --c-coral-soft: 51 32 26;
+    --c-good: 52 209 127;
+    --c-warn: 240 180 41;
+    --c-bad: 240 101 90;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme='dark'] {
+  --c-bg: 10 17 25;
+  --c-surface: 16 27 39;
+  --c-surface-2: 22 35 47;
+  --c-border: 34 51 66;
+  --c-ink: 238 244 251;
+  --c-muted: 157 176 194;
+  --c-faint: 108 128 149;
+  --c-primary: 77 151 245;
+  --c-primary-deep: 43 124 234;
+  --c-primary-fg: 6 19 33;
+  --c-primary-soft: 22 40 61;
+  --c-fit: 43 192 172;
+  --c-fit-soft: 16 49 46;
+  --c-coral: 255 131 95;
+  --c-coral-soft: 51 32 26;
+  --c-good: 52 209 127;
+  --c-warn: 240 180 41;
+  --c-bad: 240 101 90;
+  color-scheme: dark;
+}
+
+/* full-color aliases (derive from channels; defined once) */
+:root {
+  --bg: rgb(var(--c-bg));
+  --surface: rgb(var(--c-surface));
+  --surface-2: rgb(var(--c-surface-2));
+  --border: rgb(var(--c-border));
+  --ink: rgb(var(--c-ink));
+  --muted: rgb(var(--c-muted));
+  --faint: rgb(var(--c-faint));
+  --primary: rgb(var(--c-primary));
+  --primary-deep: rgb(var(--c-primary-deep));
+  --primary-fg: rgb(var(--c-primary-fg));
+  --primary-soft: rgb(var(--c-primary-soft));
+  --fit: rgb(var(--c-fit));
+  --fit-soft: rgb(var(--c-fit-soft));
+  --coral: rgb(var(--c-coral));
+  --coral-soft: rgb(var(--c-coral-soft));
+  --good: rgb(var(--c-good));
+  --warn: rgb(var(--c-warn));
+  --bad: rgb(var(--c-bad));
+}
+
+* { border-color: var(--border); }
+
+html, body, #root { height: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.tnum { font-variant-numeric: tabular-nums; }
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+:where(a, button, [tabindex]):focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* form inputs — remove native chrome, keep them consistent with the design */
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number'] { -moz-appearance: textfield; appearance: textfield; }
+input[type='date']::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0.5;
+}
+:root[data-theme='dark'] input[type='date']::-webkit-calendar-picker-indicator { filter: invert(0.85); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) input[type='date']::-webkit-calendar-picker-indicator { filter: invert(0.85); }
+}
+/* make the native option list follow the theme (Chromium/Windows) */
+select option { background: var(--surface); color: var(--ink); }
+
+* { scrollbar-width: thin; scrollbar-color: var(--border) transparent; }
+*::-webkit-scrollbar { width: 9px; height: 9px; }
+*::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+/* ---- Leaflet theming ---- */
+.leaflet-container { background: var(--surface-2); font-family: inherit; }
+.leaflet-popup-content-wrapper {
+  background: var(--surface); color: var(--ink);
+  border-radius: 12px; box-shadow: 0 8px 30px -8px rgba(12,27,42,0.35);
+}
+.leaflet-popup-tip { background: var(--surface); }
+.leaflet-popup-content { margin: 12px 14px; }
+.leaflet-bar a { background: var(--surface); color: var(--ink); border-color: var(--border); }
+.leaflet-bar a:hover { background: var(--surface-2); }
+:root[data-theme='dark'] .leaflet-tile { filter: brightness(0.75) invert(1) contrast(0.9) hue-rotate(190deg) saturate(0.7); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .leaflet-tile { filter: brightness(0.75) invert(1) contrast(0.9) hue-rotate(190deg) saturate(0.7); }
+}
+
+/* map marker pin */
+.pin {
+  width: 26px; height: 26px; border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  border: 2px solid var(--surface);
+  box-shadow: 0 3px 8px -1px rgba(12,27,42,0.4);
+  display: grid; place-items: center;
+}
+.pin > span { transform: rotate(45deg); font-size: 11px; font-weight: 700; color: #fff; }
