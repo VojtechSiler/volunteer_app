@@ -65,7 +65,7 @@ export function AuthScreen({ mode }: { mode: 'login' | 'register' }) {
             <div className="grid h-11 w-11 place-items-center rounded-2xl bg-white/15 backdrop-blur">
               <Compass size={24} />
             </div>
-            <div className="font-display text-lg font-bold">AIESEC Opportunities</div>
+            <div className="font-display text-lg font-bold">Volunteer Opportunities</div>
           </div>
 
           <div>
@@ -94,7 +94,7 @@ export function AuthScreen({ mode }: { mode: 'login' | 'register' }) {
             <div className="grid h-9 w-9 place-items-center rounded-xl bg-primary text-primary-fg">
               <Compass size={20} />
             </div>
-            <span className="font-display font-bold text-ink">AIESEC Opportunities</span>
+            <span className="font-display font-bold text-ink">Volunteer Opportunities</span>
           </div>
           <h2 className="font-display text-2xl font-bold text-ink">
             {isRegister ? t('auth.registerTitle') : t('auth.loginTitle')}
@@ -121,7 +121,7 @@ export function AuthScreen({ mode }: { mode: 'login' | 'register' }) {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="you@aiesec.org"
+                placeholder="you@example.com"
                 autoComplete="email"
               />
             </Field>

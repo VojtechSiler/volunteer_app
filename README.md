@@ -1,6 +1,6 @@
-# AIESEC Opportunities
+# Volunteer Opportunities
 
-A prototype web app for browsing AIESEC exchange opportunities, filtering and
+A prototype web app for browsing exchange opportunities, filtering and
 searching them, viewing rich detail pages, exploring them on a world map, and —
 the headline feature — **matching a candidate's profile to the best-fit
 opportunities** with a transparent scoring breakdown.

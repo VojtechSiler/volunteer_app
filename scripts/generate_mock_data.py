@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Generate a clean, rich mock dataset of AIESEC opportunities for the demo app.
+"""Generate a clean, rich mock dataset of volunteer/exchange opportunities for the demo app.
 
 Run from anywhere:  python scripts/generate_mock_data.py
 Writes to src/data/opportunities.json relative to the app root.
@@ -160,7 +160,7 @@ TEACH_TITLES = [
     "Conversational English Facilitator", "Academic English Tutor",
 ]
 
-ORGS_VOL = ["AIESEC Local Committee", "Green Future NGO", "Bright Minds Foundation",
+ORGS_VOL = ["Local Volunteer Committee", "Green Future NGO", "Bright Minds Foundation",
             "Ocean Guardians", "EduReach Initiative", "Hope Community Center",
             "Sustainable Roots", "Youth Impact Hub"]
 ORGS_TAL = ["Voicari GmbH", "Tata Consultancy Services Ltd.", "NexaSoft Solutions",
@@ -199,7 +199,7 @@ TEACH_RESP = [
 PROG_BENEFITS = [
     "International exposure in a real working environment",
     "Practical, hands-on skill development",
-    "Full AIESEC support during selection and stay",
+    "Full support during selection and stay",
     "Leadership and personal development opportunities",
     "A global network of peers and mentors",
     "Certificate of completion and reference letter",
@@ -279,14 +279,14 @@ def make(idx):
     }
 
     desc_map = {
-        "global-volunteer": f"Join a purpose-driven volunteering experience in {city}, {country}. Work alongside a passionate local team and international volunteers to create real, measurable impact in the community. This project is part of AIESEC's Global Volunteer programme, connecting young people to the UN Sustainable Development Goals through hands-on cross-cultural exchange.",
-        "global-talent": f"An international professional internship hosted by {org} in {city}, {country}. Gain real corporate experience, develop in-demand skills, and grow your global network. Part of AIESEC's Global Talent programme, designed to give youth exposure to high-quality professional experiences abroad.",
-        "global-teacher": f"Teach English and inspire learners in {city}, {country}. As part of AIESEC's Global Teacher programme, you will help build language skills and confidence while immersing yourself in a new culture.",
+        "global-volunteer": f"Join a purpose-driven volunteering experience in {city}, {country}. Work alongside a passionate local team and international volunteers to create real, measurable impact in the community. This project is part of the Global Volunteer programme, connecting young people to the UN Sustainable Development Goals through hands-on cross-cultural exchange.",
+        "global-talent": f"An international professional internship hosted by {org} in {city}, {country}. Gain real corporate experience, develop in-demand skills, and grow your global network. Part of the Global Talent programme, designed to give youth exposure to high-quality professional experiences abroad.",
+        "global-teacher": f"Teach English and inspire learners in {city}, {country}. As part of the Global Teacher programme, you will help build language skills and confidence while immersing yourself in a new culture.",
     }
 
     return {
         "id": 1300000 + idx,
-        "url": f"https://aiesec.org/opportunity/{prog}/{1300000+idx}",
+        "url": f"https://opportunities.example.org/{prog}/{1300000+idx}",
         "programme": prog,
         "programmeLabel": {"global-volunteer": "Global Volunteer",
                            "global-talent": "Global Talent",

@@ -17,7 +17,7 @@ export const LANGUAGES: { code: Lang; label: string; short: string }[] = [
 ]
 
 const LOCALES: Record<Lang, string> = { en: 'en-GB', cs: 'cs-CZ', sk: 'sk-SK' }
-const KEY = 'aiesec.lang'
+const KEY = 'volunteer.lang'
 
 type Tr = { en: string; cs: string; sk: string }
 
@@ -25,14 +25,14 @@ type Tr = { en: string; cs: string; sk: string }
  * Translations are co-located per key so every string is guaranteed to exist in
  * all three languages. Data-derived content (opportunity titles, descriptions,
  * SDG names, organisations) stays in its source language — it would come from
- * the AIESEC API. Programme brand names are kept in English across languages.
+ * the opportunities API. Programme names are kept in English across languages.
  */
 const DICT: Record<string, Tr> = {
   // ---- nav / shell ----
   'nav.opportunities': { en: 'Opportunities', cs: 'Příležitosti', sk: 'Príležitosti' },
   'nav.match': { en: 'Match a person', cs: 'Spárovat osobu', sk: 'Spárovať osobu' },
   'nav.settings': { en: 'Settings', cs: 'Nastavení', sk: 'Nastavenia' },
-  'brand.subtitle': { en: 'AIESEC Exchange', cs: 'AIESEC výměna', sk: 'AIESEC výmena' },
+  'brand.subtitle': { en: 'Volunteer Exchange', cs: 'Dobrovolnická výměna', sk: 'Dobrovoľnícka výmena' },
   'common.signOut': { en: 'Sign out', cs: 'Odhlásit se', sk: 'Odhlásiť sa' },
   'common.light': { en: 'Light', cs: 'Světlý', sk: 'Svetlý' },
   'common.dark': { en: 'Dark', cs: 'Tmavý', sk: 'Tmavý' },
@@ -277,7 +277,7 @@ const DICT: Record<string, Tr> = {
     cs: 'Uzávěrka {d} · Začátek {s}',
     sk: 'Uzávierka {d} · Začiatok {s}',
   },
-  'detail.applyOn': { en: 'Apply on aiesec.org', cs: 'Přihlásit se na aiesec.org', sk: 'Prihlásiť sa na aiesec.org' },
+  'detail.applyOn': { en: 'Apply for this opportunity', cs: 'Přihlásit se na pozici', sk: 'Prihlásiť sa na pozíciu' },
   'detail.matchCandidate': { en: 'Match a candidate', cs: 'Spárovat kandidáta', sk: 'Spárovať kandidáta' },
   'detail.notFound': { en: 'Opportunity not found', cs: 'Příležitost nenalezena', sk: 'Príležitosť sa nenašla' },
   'detail.notFoundHint': {

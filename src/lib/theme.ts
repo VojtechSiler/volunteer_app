@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 type Theme = 'light' | 'dark'
-const KEY = 'aiesec.theme'
+const KEY = 'volunteer.theme'
 
 function getInitial(): Theme {
   const saved = localStorage.getItem(KEY)
