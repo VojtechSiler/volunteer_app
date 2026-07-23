@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "volunteer-app",
+  "name": "volunteerapptest",
   "compatibility_date": "2025-06-01",
   "assets": {
     "directory": "./dist",
